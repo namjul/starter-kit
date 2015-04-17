@@ -1,0 +1,49 @@
+{
+  "name": "udm-starter-kit",
+  "version": "0.0.1",
+  "description": "UDM's starter kit. Webpack, Babel, CSS4/Less und mehr.",
+  "devDependencies": {
+    "autoprefixer-core": "^5.1.7",
+    "babel-core": "^4.7.16",
+    "babel-loader": "^4.3.0",
+    "babel-runtime": "^4.7.16",
+    "css-loader": "~0.9.1",
+    "css-mqpacker": "^3.1.0",
+    "extract-text-webpack-plugin": "^0.5.0",
+    "file-loader": "^0.8.1",
+    "less-loader": "^2.2.0",
+    "opener": "^1.4.1",
+    "postcss-custom-media": "^3.0.0",
+    "postcss-custom-properties": "^3.2.0",
+    "postcss-custom-selectors": "^1.1.0",
+    "postcss-import": "^5.0.3",
+    "postcss-loader": "^0.3.0",
+    "postcss-media-minmax": "^1.1.0",
+    "rimraf": "latest",
+    "style-loader": "~0.8.3",
+    "url-loader": "^0.5.5",
+    "webpack": "^1.7.2",
+    "webpack-dev-server": "^1.8.0"
+  },
+  "scripts": {
+    "clean": "rimraf build",
+
+    "prebuild": "npm run clean -s",
+    "build": "webpack --progress --colors -p",
+    "prewatch": "npm run clean -s",
+    "watch": "webpack --progress --colors -w",
+
+    "test": "echo \"Error: no test specified\" && exit 1",
+
+    "open:prod": "opener http://example.udm-websolutions.at",
+    "open:stage": "opener http://example-staging.udm-websolutions.at",
+    "open:dev": "opener http://localhost:8080",
+
+    "deploy:prod": "git push dokku master",
+    "deploy:stage": "git push dokku-staging develop:master",
+
+    "start": "webpack-dev-server --hot --inline --content-base public/ --colors -d",
+
+    "todo": "grep --color -Ion '\\(TODO\\).*' -r src public"
+  }
+}

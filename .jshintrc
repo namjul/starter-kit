@@ -1,0 +1,19 @@
+{
+  "bitwise": true,
+  "eqeqeq": true,
+  "forin": true,
+  "latedef": true,
+  "quotmark": "single",
+  "noarg": true,
+  "nonbsp": true,
+  "nonew": true,
+  "undef": true,
+  "esnext": true,
+  "unused": true,
+  "browser": true,
+  "debug": true,
+  "node": true,
+  "globals": {
+    "React": true
+  }
+}
