@@ -4,10 +4,10 @@
  * Module dependencies.
  */
 
-require('./index.css');
-require('./lol.less');
-var bg = require('./images/bg.jpg');
-var style = require('./index.useable.css');
+import './index.css';
+import './lol.less';
+import bg from './images/bg.jpg';
+import style from './index.useable.css';
 
 setTimeout(function() {
   style.use();
@@ -19,6 +19,8 @@ setTimeout(function() {
 
 /**
  * log.
+ *
+ * TODO: something to do
  */
 
 var log = function(value) {
@@ -29,6 +31,9 @@ var log = function(value) {
 
 
 module.exports = {
+  toTest: function(input='default') {
+    return input;
+  },
   log: log
 };
 

@@ -1,3 +1,5 @@
+var path = require('path');
+var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var autoprefixer = require('autoprefixer-core');
 var atImport = require('postcss-import');
@@ -9,10 +11,9 @@ var mqpacker = require('css-mqpacker');
 
 
 module.exports = {
-  // webpack config
   entry: './src/app.js',
   output: {
-    path: __dirname + '/build',
+    path: path.join(__dirname, '/build'),
     publicPath: '/build/',
     filename: 'bundle.js'
   },
@@ -22,10 +23,14 @@ module.exports = {
       { test: /\.less$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap!less-loader?sourceMap') },
       { test: /\.css$/, exclude: /\.useable\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap!postcss-loader') },
       { test: /\.useable\.css$/, loader: 'style-loader/useable!css-loader?sourceMap!postcss-loader' },
-      { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192&name=images/[name].[hash].[ext]' }
+      { test: /\.gif/, loader: 'url-loader?limit=10000&mimetype=image/gif&name=images/[name].[hash].[ext]' },
+      { test: /\.jpg/, loader: 'url-loader?limit=10000&mimetype=image/jpg&name=images/[name].[hash].[ext]' },
+      { test: /\.png/, loader: 'url-loader?limit=10000&mimetype=image/png&name=images/[name].[hash].[ext]' },
+      { test: /\.svg/, loader: 'url-loader?limit=10000&mimetype=image/svg+xml&name=images/[name].[hash].[ext]' }
     ]
   },
   plugins: [
+    new webpack.optimize.OccurenceOrderPlugin(),
     new ExtractTextPlugin('styles.css')
   ],
   postcss: [autoprefixer, atImport(), customMedia(), customProperties(), selector(), minmax(), mqpacker()]

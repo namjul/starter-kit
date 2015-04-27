@@ -1,6 +1,8 @@
 # 0.1.1
 
-- Small fix
+- bug: Small fix
+- enh: Simple enhancement
+- new: New feature
 
 # 0.1.0
 

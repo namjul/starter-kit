@@ -23,26 +23,22 @@
 
 # Features
 
-* JavaScript
- * CommonJS, AMD
- * ES6
- * Bundler
+* ES6
+* CommonJS, AMD, ES6 Module
 * JS/CSS Minification
 * TODOs
 * Server (Clickdummy, Backend, FileServer)
-* Less, Stylus, SASS, PostCSS
-  * Autoprefixer
-  * Bundler
-  * CSS Base (reset)
+* Less, CSS4 
 * editorconfigs
 * jsLint (jshint)
 * Changelog
+* Documentation
 * gitconfigs
 * Tests
 * Distribution
 * Semver
 * Watch
-* Livereload
+* hotreload
 * Bower & NPM Modules
 * Windows & Linux & OSX
 * Hashing
@@ -65,6 +61,20 @@ npm start
 ## Watching
 
 ## Testing
+
+The tests use Karma, Mocha and Chai through PhantomJS. See the example test in
+app/components/pages/__tests__/index.js. The test suite can be run like so:
+
+```
+npm test
+```
+
+To run the tests in watch mode (tests will re-run each time a file changes), use this instead:
+
+```
+npm run test:watch
+```
+
 
 ## Deployment
 
@@ -89,6 +99,35 @@ Major:
 ```
 npm version major
 ```
+
+## Linting
+
+If you'd like your JavaScript to be linted, copy the .eslintrc.example to
+.eslintrc. I've included my own defaults, feel free to modify them to your own
+taste. For more information on configuring ESLint, consult its documentation.
+Linting is run before each webpack build when a .eslintrc file is present.
+
+Install eslint and babel-eslint NPM packages globally.
+It’s important to stress “globally” here. Don’t forget the -g.
+
+```
+npm install -g eslint
+npm install -g babel-eslint
+```
+
+Make sure eslint is in your PATH now:
+
+```
+eslint -v
+```
+
+
+##.editorconfig
+
+An example .editorconfig file is provided with sensible defaults for
+JavaScript. Feel free to modify .editorconfig.example to match your own
+preferences, then renamed the file to .editorconfig and use an IDE or editor
+that supports EditorConfig.
 
 ## Sources
 
