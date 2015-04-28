@@ -12,8 +12,5 @@
   "unused": true,
   "browser": true,
   "debug": true,
-  "node": true,
-  "globals": {
-    "React": true
-  }
+  "node": true
 }
