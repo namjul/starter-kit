@@ -11,7 +11,7 @@
 ├── /node_modules/              # 3rd-party libraries and utilities
 ├── /src/                       # The source code of the application
 │   ├── /assets/                # Static files which are copied to ./build on compile
-│   ├── /components/            # React components
+│   ├── /components/            # Components
 │   ├── /content/               # Website content (plain HTML or Markdown, Jade, you name it)
 │   ├── /styles/                # CSS styles (deprecated, put CSS into components' folders)
 │   ├── /templates/             # HTML templates for server-side rendering, emails etc.

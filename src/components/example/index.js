@@ -12,8 +12,10 @@ import style from './index.useable.css';
 setTimeout(function() {
   style.use();
 
+  //velocity(document.querySelector('.app'), {'rotateZ': 360}, {duration: 3000});
+
   setTimeout(function() {
-    document.querySelector('body').style.backgroundImage = `url(${bg})`;
+    document.querySelector('.app').style.backgroundImage = `url(${bg})`;
   }, 3000);
 }, 3000);
 

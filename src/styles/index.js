@@ -5,7 +5,7 @@
  * Global...............Globally-available variables and config.
  */
 
-require('global.css');
+require('./global.css');
 
 /**
  *
@@ -13,7 +13,7 @@ require('global.css');
  * Mixins...............Useful mixins.
  */
 
-require('tools.css');
+require('./tools.css');
 
 /**
  * GENERIC
@@ -21,7 +21,7 @@ require('tools.css');
  * Box-sizing...........Better default `box-sizing`.
  */
 
-require('generic.css');
+require('./generic.css');
 
 /**
  *
@@ -29,7 +29,7 @@ require('generic.css');
  * Headings.............H1–H6 styles.
  */
 
-require('base.css');
+require('./base.css');
 
 /**
  *
@@ -37,7 +37,7 @@ require('base.css');
  * Wrappers.............Wrapping and constraining elements.
  */
 
-require('objects.css');
+require('./objects.css');
 
 /**
  *
@@ -47,7 +47,7 @@ require('objects.css');
  * Buttons..............Button elements.
  */
 
-require('components.css');
+require('./components.css');
 
 /**
  *
@@ -55,4 +55,4 @@ require('components.css');
  * Text.................Text helpers.
  */
 
-require('trumps.css');
+require('./trumps.css');

@@ -4,8 +4,8 @@
  * Module dependencies.
  */
 
-var page = require('./components/pages/index.js');
-
+require('./styles/index.js');
+var page = require('./components/example/index.js');
 
 console.log(page.log('Hello World'));
 
