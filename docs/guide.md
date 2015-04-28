@@ -1,5 +1,4 @@
-## UDM Style Guide
-
+# UDM Style Guide
 
 ## Git Workflow
 
@@ -23,10 +22,15 @@ In many cases modules from npm are better than the same module from bower. Bower
 
 So prefer to use the CommonJs-style module and let webpack build it.
 
-## Usage inside Visual Studio 
+# Anwendungsbeispiele
 
-## How to embbed Bootstrap
+## Wordpress
 
-## Quellen
+## Visual Studio 
+
+## Bootstrap
+
+
+# Quellen
 
 - [https://github.com/kriasoft/react-starter-kit/blob/master/docs/react-style-guide.md]
