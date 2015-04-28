@@ -122,12 +122,22 @@ eslint -v
 ```
 
 
-##.editorconfig
+## .editorconfig
 
 An example .editorconfig file is provided with sensible defaults for
 JavaScript. Feel free to modify .editorconfig.example to match your own
 preferences, then renamed the file to .editorconfig and use an IDE or editor
 that supports EditorConfig.
+
+## Update
+You can always fetch and merge the recent changes from this repo back into your own project:
+
+```
+git checkout master
+git fetch udmsk
+git merge udmsk/master
+npm install
+```
 
 ## Sources
 
