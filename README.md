@@ -9,12 +9,11 @@
 ├── /build/                     # The folder for compiled output
 ├── /docs/                      # Documentation files for the project
 ├── /node_modules/              # 3rd-party libraries and utilities
+├── /public/                    # Server-side files (HTML templates, statics, etc.)
 ├── /src/                       # The source code of the application
 │   ├── /assets/                # Static files which are copied to ./build on compile
 │   ├── /components/            # Components
-│   ├── /content/               # Website content (plain HTML or Markdown, Jade, you name it)
 │   ├── /styles/                # CSS styles (deprecated, put CSS into components' folders)
-│   ├── /templates/             # HTML templates for server-side rendering, emails etc.
 │   ├── /app.js                 # Client-side startup script
 │   └── /server.js              # Server-side startup script
 │── package.json                # The list of 3rd party libraries and utilities
@@ -49,16 +48,32 @@
 
 ## Anwendung
 
-Fork dieses Repo, und dann folgendes ausführen:
+Fork oder klone dieses Repo, und dann folgendes ausführen:
 
 ```
+git clone -o udm-starter-kit git@10.0.0.102:udm/udm-starter-kit.git MyApp
+cd MyApp
 npm install
 npm start
 ```
 
 ## Building
 
+```
+npm run build 
+```
+
 ## Watching
+
+```
+npm run watch
+```
+
+## Dev server
+
+```
+npm start
+```
 
 ## Testing
 
@@ -77,6 +92,20 @@ npm run test:watch
 
 
 ## Deployment
+
+Zunächst müssen Dokku Remotes erstellt werden.
+
+```
+git remote add dokku@dokku:MyApp
+git remote add dokku-staging@dokku:MyApp
+```
+
+Anschließend kann deployed werden
+
+```
+npm run deplay:stage
+npm run deplay:prod
+```
 
 ## Versionierung
 
@@ -98,6 +127,14 @@ Major:
 
 ```
 npm version major
+```
+
+## Todo
+
+Auflisten aller vorhandenen TODO:'s Kommentare.
+
+```
+npm run todo -s
 ```
 
 ## Linting
@@ -134,8 +171,8 @@ You can always fetch and merge the recent changes from this repo back into your 
 
 ```
 git checkout master
-git fetch udmsk
-git merge udmsk/master
+git fetch udm-starter-kit
+git merge udm-starter-kit/master
 npm install
 ```
 

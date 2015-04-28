@@ -1,4 +1,3 @@
-'use strict';
 
 /**
  * Module dependencies.
@@ -28,8 +27,6 @@ setTimeout(function() {
 var log = function(value) {
   console.log(value + 'jojojo');
 };
-
-
 
 
 module.exports = {
