@@ -39,7 +39,7 @@
     "prebuild": "npm run clean -s",
     "build": "webpack --progress --colors -p",
     "prewatch": "npm run clean -s",
-    "watch": "webpack --progress --colors -w",
+    "watch": "webpack --progress --colors -wd",
     "test": "karma start --single-run",
     "test:watch": "karma start",
     "open:prod": "opener http://example.udm-websolutions.at",
