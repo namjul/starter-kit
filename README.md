@@ -11,7 +11,7 @@
 ├── /node_modules/              # 3rd-party libraries and utilities
 ├── /public/                    # Server-side files (HTML templates, statics, etc.)
 ├── /src/                       # The source code of the application
-│   ├── /assets/                # Static files which are copied to ./build on compile
+│   ├── /helper/                # Helper functions
 │   ├── /components/            # Components
 │   ├── /styles/                # CSS styles (deprecated, put CSS into components' folders)
 │   └── /app.js                 # Client-side startup script
