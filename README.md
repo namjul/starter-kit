@@ -95,15 +95,15 @@ npm run test:watch
 Zunächst müssen Dokku Remotes erstellt werden.
 
 ```
-git remote add dokku@dokku:MyApp
-git remote add dokku-staging@dokku:MyApp
+git remote add dokku dokku@udm-websolutions.at:MyApp
+git remote add dokku-staging dokku-staging@udm-websolutions.at:MyApp
 ```
 
 Anschließend kann deployed werden
 
 ```
-npm run deplay:stage
-npm run deplay:prod
+npm run deploy:stage
+npm run deploy:prod
 ```
 
 ## Versionierung
