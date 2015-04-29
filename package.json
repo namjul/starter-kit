@@ -47,7 +47,7 @@
     "open:dev": "opener http://localhost:8080",
     "deploy:prod": "git push dokku master",
     "deploy:stage": "git push dokku-staging HEAD:master",
-    "start": "webpack-dev-server --hot --inline --content-base public/ --colors -d",
+    "start": "webpack-dev-server --colors -d",
     "todo": "grep --color -Ion '\\(TODO\\).*' -r src public"
   }
 }

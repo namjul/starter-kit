@@ -17,6 +17,12 @@ module.exports = {
     publicPath: '/build/',
     filename: 'bundle.js'
   },
+  devServer: {
+    contentBase: './public',
+    hot: true,
+    inline: true,
+    post: process.env.PORT || 8080
+  },
   module: {
     loaders: [
       { test: /\.js?$/, exclude: /node_modules/, loader: 'babel-loader?optional=runtime' },
