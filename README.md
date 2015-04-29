@@ -9,9 +9,10 @@
 ├── /build/                     # The folder for compiled output
 ├── /docs/                      # Documentation files for the project
 ├── /node_modules/              # 3rd-party libraries and utilities
-├── /public/                    # Server-side files (HTML templates, statics, etc.)
+├── /public/                    # Static files
 ├── /src/                       # The source code of the application
 │   ├── /helper/                # Helper functions
+    ├── /templates/             # HTML templates for server-side rendering, emails etc.
 │   ├── /components/            # Components
 │   ├── /styles/                # CSS styles (deprecated, put CSS into components' folders)
 │   └── /app.js                 # Client-side startup script
