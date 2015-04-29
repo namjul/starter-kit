@@ -14,9 +14,8 @@
 │   ├── /assets/                # Static files which are copied to ./build on compile
 │   ├── /components/            # Components
 │   ├── /styles/                # CSS styles (deprecated, put CSS into components' folders)
-│   ├── /app.js                 # Client-side startup script
-│   └── /server.js              # Server-side startup script
-│── package.json                # The list of 3rd party libraries and utilities
+│   └── /app.js                 # Client-side startup script
+│── package.json                # Build commands & list of 3rd party libraries and utilities
 └── webpack.config.js           # Webpack configuration for bundling and optimization
 ```
 
