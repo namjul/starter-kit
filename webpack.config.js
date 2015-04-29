@@ -21,7 +21,7 @@ module.exports = {
     contentBase: './public',
     hot: true,
     inline: true,
-    post: process.env.PORT || 8080
+    port: process.env.PORT || 8080
   },
   module: {
     loaders: [
