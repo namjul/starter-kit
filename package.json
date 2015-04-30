@@ -37,9 +37,9 @@
   "scripts": {
     "clean": "rimraf build",
     "prebuild": "npm run clean -s",
-    "build": "PRODUCTION=1 webpack --progress --colors -p",
+    "build": "PRODUCTION=1 DEBUG=0 webpack --progress --colors -p",
     "prewatch": "npm run clean -s",
-    "watch": "DEBUG=1 webpack --progress --colors -wd",
+    "watch": "PRODUCTION=0 DEBUG=1 webpack --progress --colors -wd",
     "test": "karma start --single-run",
     "test:watch": "karma start",
     "open:prod": "opener http://example.udm-websolutions.at",
@@ -47,7 +47,7 @@
     "open:dev": "opener http://localhost:8080",
     "deploy:prod": "git push dokku master",
     "deploy:stage": "git push dokku-staging HEAD:master",
-    "start": "webpack-dev-server --colors -d",
+    "start": "PRODUCTION=0 DEBUG=1  webpack-dev-server --colors -d",
     "todo": "grep --color -Ion '\\(TODO\\).*' -r src public"
   }
 }
