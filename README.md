@@ -9,9 +9,10 @@
 ├── /build/                     # The folder for compiled output
 ├── /docs/                      # Documentation files for the project
 ├── /node_modules/              # 3rd-party libraries and utilities
-├── /public/                    # Server-side files (HTML templates, statics, etc.)
+├── /public/                    # Static files
 ├── /src/                       # The source code of the application
-│   ├── /assets/                # Static files which are copied to ./build on compile
+│   ├── /helper/                # Helper functions
+    ├── /templates/             # HTML templates for server-side rendering, emails etc.
 │   ├── /components/            # Components
 │   ├── /styles/                # CSS styles (deprecated, put CSS into components' folders)
 │   └── /app.js                 # Client-side startup script
@@ -95,15 +96,15 @@ npm run test:watch
 Zunächst müssen Dokku Remotes erstellt werden.
 
 ```
-git remote add dokku@dokku:MyApp
-git remote add dokku-staging@dokku:MyApp
+git remote add dokku dokku@udm-websolutions.at:MyApp
+git remote add dokku-staging dokku-staging@udm-websolutions.at:MyApp
 ```
 
 Anschließend kann deployed werden
 
 ```
-npm run deplay:stage
-npm run deplay:prod
+npm run deploy:stage
+npm run deploy:prod
 ```
 
 ## Versionierung
