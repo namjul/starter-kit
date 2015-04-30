@@ -8,6 +8,7 @@ var customProperties = require('postcss-custom-properties');
 var selector = require('postcss-custom-selectors');
 var minmax = require('postcss-media-minmax');
 var mqpacker = require('css-mqpacker');
+var pjson = require('./package.json');
 
 
 module.exports = {
@@ -37,7 +38,12 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
-    new ExtractTextPlugin('styles.css')
+    new ExtractTextPlugin('styles.css'),
+    new webpack.DefinePlugin({
+      VERSION: JSON.stringify(pjson.version),
+      DEBUG: JSON.stringify(JSON.parse(process.env.DEBUG || 'true')),
+      PRODUCTION: JSON.stringify(JSON.parse(process.env.PRODUCTION || 'false'))
+    })
   ],
   postcss: [autoprefixer, atImport(), customMedia(), customProperties(), selector(), minmax(), mqpacker()]
 

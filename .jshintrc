@@ -12,5 +12,10 @@
   "unused": true,
   "browser": true,
   "debug": true,
-  "node": true
+  "node": true,
+  "predef": {
+    "DEBUG": true,
+    "PRODUCTION": true,
+    "VERSION": true
+  }
 }

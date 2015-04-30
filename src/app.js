@@ -1,3 +1,7 @@
+if(DEBUG) {
+  console.log('Running App version ' + VERSION);
+}
+
 
 /**
  * Module dependencies.
