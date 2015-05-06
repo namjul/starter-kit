@@ -33,37 +33,37 @@ So prefer to use the CommonJs-style module and let webpack build it.
 ## Launchlist
 
 
-- All text free from spelling errors?
-- Content has been placed consistently?
-- Page & Content formatting has been tested?
-- Print stylesheet exists and tested?
-- Meta data has been included and is appropriate?
-- Page titles are descriptive and SEO friendly?
-- Images have appropriate alt text?
-- Title attributes are appropriate and SEO friendly?
-- Favicon has been created and displays correctly?
-- Footer includes copyright and link to site creator?
-- HTML has passed validation?
-- CSS has passed validation?
-- There are no broken links?
-- JavaScript is error free?
-- Displays & functions correctly in ie6?
-- Displays & functions correctly in ie7?
-- Displays & functions correctly in ie8?
-- Displays & functions correctly in Firefox (Mac & PC)?
-- Displays & functions correctly in Chrome (Mac & PC)?
-- Displays & functions correctly in Safari (Mac & PC)?
-- Displays & functions correctly in Opera (Mac & PC)?
-- Tested at 1024 x 768 resolution?
-- Tested at larger resolutions?
-- Forms have been tested and processed correctly?
-- Required fields have been tested?
-- Forms send to correct recipient?
-- Web Statistics package installed and operational?
-- 404 page exists and informative?
-- Is your website backed up?
-- Sign up to Backup Machine
-- Is your website monitored? 
+[ ] All text free from spelling errors?
+[ ] Content has been placed consistently?
+[ ] Page & Content formatting has been tested?
+[ ] Print stylesheet exists and tested?
+[ ] Meta data has been included and is appropriate?
+[ ] Page titles are descriptive and SEO friendly?
+[ ] Images have appropriate alt text?
+[ ] Title attributes are appropriate and SEO friendly?
+[ ] Favicon has been created and displays correctly?
+[ ] Footer includes copyright and link to site creator?
+[ ] HTML has passed validation?
+[ ] CSS has passed validation?
+[ ] There are no broken links?
+[ ] JavaScript is error free?
+[ ] Displays & functions correctly in ie6?
+[ ] Displays & functions correctly in ie7?
+[ ] Displays & functions correctly in ie8?
+[ ] Displays & functions correctly in Firefox (Mac & PC)?
+[ ] Displays & functions correctly in Chrome (Mac & PC)?
+[ ] Displays & functions correctly in Safari (Mac & PC)?
+[ ] Displays & functions correctly in Opera (Mac & PC)?
+[ ] Tested at 1024 x 768 resolution?
+[ ] Tested at larger resolutions?
+[ ] Forms have been tested and processed correctly?
+[ ] Required fields have been tested?
+[ ] Forms send to correct recipient?
+[ ] Web Statistics package installed and operational?
+[ ] 404 page exists and informative?
+[ ] Is your website backed up?
+[ ] Sign up to Backup Machine
+[ ] Is your website monitored? 
 
 
 # Quellen
