@@ -114,7 +114,7 @@ Versionierung nach Semver - [http://semver.org/]
 Patch:
 
 ```
-npm version patch
+npm version patch -m "Upgrade to %s for reasons"
 ```
 
 Minor: 
