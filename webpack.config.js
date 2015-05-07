@@ -45,6 +45,6 @@ module.exports = {
       PRODUCTION: JSON.stringify(JSON.parse(process.env.PRODUCTION || 'false'))
     })
   ],
-  postcss: [autoprefixer, atImport(), customMedia(), customProperties(), selector(), minmax(), mqpacker()]
+  postcss: [atImport(), autoprefixer, customMedia(), customProperties(), selector(), minmax(), mqpacker()]
 
 };
