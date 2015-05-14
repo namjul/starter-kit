@@ -69,6 +69,8 @@ https://tryblocks.com/departure/
 
 ### SEO
 
+http://ctec.clark.edu/~lvanfossen/sandboxposttext.txt
+https://news.ycombinator.com/item?id=9522885
 http://onlinemarketinginct.com/2015/05/09/seo-checklist-2015/
 
 
