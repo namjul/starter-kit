@@ -72,6 +72,7 @@ https://tryblocks.com/departure/
 http://ctec.clark.edu/~lvanfossen/sandboxposttext.txt
 https://news.ycombinator.com/item?id=9522885
 http://onlinemarketinginct.com/2015/05/09/seo-checklist-2015/
+http://searchengineland.com/tested-googlebot-crawls-javascript-heres-learned-220157
 
 
 # Quellen
