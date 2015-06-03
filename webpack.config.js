@@ -45,6 +45,10 @@ module.exports = {
       PRODUCTION: JSON.stringify(JSON.parse(process.env.PRODUCTION || 'false'))
     })
   ],
+  resolve: {
+    extensions: ['', '.js', '.less'],
+    modulesDirectories: ['src', 'node_modules']
+  },
   postcss: [atImport(), autoprefixer, customMedia(), customProperties(), selector(), minmax(), mqpacker()]
 
 };
