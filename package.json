@@ -35,19 +35,24 @@
     "webpack-dev-server": "^1.8.0"
   },
   "scripts": {
-    "clean": "rimraf build",
+    "clean": "rimraf public/build",
     "prebuild": "npm run clean -s",
-    "build": "PRODUCTION=1 DEBUG=0 webpack --progress --colors -p",
+    "build": "webpack --progress --colors",
+    "build:release": "NODE_ENV=production npm run build",
     "prewatch": "npm run clean -s",
-    "watch": "PRODUCTION=0 DEBUG=1 webpack --progress --colors -wd",
+    "watch": "webpack --progress --colors -w",
     "test": "karma start --single-run",
-    "test:watch": "karma start",
-    "open:prod": "opener http://example.udm-websolutions.at",
-    "open:stage": "opener http://example-staging.udm-websolutions.at",
-    "open:dev": "opener http://localhost:8080",
-    "deploy:prod": "git push dokku master",
-    "deploy:stage": "git push dokku-staging HEAD:master",
-    "start": "PRODUCTION=0 DEBUG=1  webpack-dev-server --colors -d",
-    "todo": "grep --color -Ion '\\(TODO\\).*' -r src public"
+    "deploy": "git push webpack HEAD:master --force",
+    "start": "node src/server.js",
+    "todo": "grep --color -Ion '\\(TODO\\).*' -r src"
+  },
+  "dependencies": {
+    "archiver": "^0.14.4",
+    "basic-auth": "^1.0.2",
+    "cookie-parser": "^1.3.5",
+    "express": "^4.12.4",
+    "express-session": "^1.11.3",
+    "jade": "^1.11.0",
+    "markdown": "^0.5.0"
   }
 }

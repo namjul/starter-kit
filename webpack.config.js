@@ -9,45 +9,45 @@ var selector = require('postcss-custom-selectors');
 var minmax = require('postcss-media-minmax');
 var mqpacker = require('css-mqpacker');
 var pjson = require('./package.json');
-
+var isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
   entry: './src/app.js',
   output: {
-    path: path.join(__dirname, '/build'),
-    publicPath: '/build/',
+    path: path.resolve(__dirname, 'public', 'build'),
+    pathinfo: isProduction ? false : true,
     filename: 'bundle.js'
   },
-  devServer: {
-    contentBase: './public',
-    hot: true,
-    inline: true,
-    port: process.env.PORT || 8080
-  },
+  devtool: 'source-map',
+  debug: isProduction ? false : true,
   module: {
     loaders: [
       { test: /\.js?$/, exclude: /node_modules/, loader: 'babel-loader?optional=runtime' },
       { test: /\.less$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap!less-loader?sourceMap') },
       { test: /\.css$/, exclude: /\.useable\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap!postcss-loader') },
       { test: /\.useable\.css$/, loader: 'style-loader/useable!css-loader?sourceMap!postcss-loader' },
-      { test: /\.gif/, loader: 'url-loader?limit=10000&mimetype=image/gif&name=images/[name].[hash].[ext]' },
-      { test: /\.jpg/, loader: 'url-loader?limit=10000&mimetype=image/jpg&name=images/[name].[hash].[ext]' },
-      { test: /\.png/, loader: 'url-loader?limit=10000&mimetype=image/png&name=images/[name].[hash].[ext]' },
-      { test: /\.svg/, loader: 'url-loader?limit=10000&mimetype=image/svg+xml&name=images/[name].[hash].[ext]' }
+      { test: /\.(svg|png|jpg|jpeg|gif)$/, loader: 'url-loader?limit=1000&name=images/[name].[hash].[ext]' },
+      { test: /(font|fonts)\/.*\.(eot|ttf|woff|svg)$/, loader: 'file?name=font/[name].[ext]' }
     ]
   },
+
   plugins: [
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new ExtractTextPlugin('styles.css'),
+    new ExtractTextPlugin('styles/[name].css'),
     new webpack.DefinePlugin({
-      VERSION: JSON.stringify(pjson.version),
-      DEBUG: JSON.stringify(JSON.parse(process.env.DEBUG || 'true')),
-      PRODUCTION: JSON.stringify(JSON.parse(process.env.PRODUCTION || 'false'))
-    })
-  ],
+      DEBUG: isProduction ? false: true,
+      PRODUCTION: isProduction ? true : false
+    }),
+    new webpack.BannerPlugin(pjson.name + ', v' + pjson.version, {entryOnly: true}) // Adds version numter to every output file
+  ]
+  .concat(!isProduction ? [
+    new webpack.HotModuleReplacementPlugin() // We have to manually add the Hot Replacement plugin when running from Node
+  ] : [])
+  .concat(isProduction ? [
+    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
+  ] : []),
   resolve: {
-    extensions: ['', '.js', '.less'],
-    modulesDirectories: ['src', 'node_modules']
+    extensions: ['', '.js', '.less']
   },
   postcss: [atImport(), autoprefixer, customMedia(), customProperties(), selector(), minmax(), mqpacker()]
 

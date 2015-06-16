@@ -1,5 +1,13 @@
 # UDM Style Guide
 
+## jQuery & jQuery Plugins
+
+[http://webpack.github.io/docs/shimming-modules.html]
+
+## CSS
+
+## Less
+
 ## Git Workflow
 
 ### Branches
