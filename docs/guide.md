@@ -30,6 +30,10 @@ In many cases modules from npm are better than the same module from bower. Bower
 
 So prefer to use the CommonJs-style module and let webpack build it.
 
+## Module generator
+
+[https://github.com/hughsk/module-generator]
+
 # Anwendungsbeispiele
 
 ## Wordpress
