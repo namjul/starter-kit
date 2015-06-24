@@ -3,13 +3,16 @@ if(DEBUG) {
 }
 
 
+
+
 /**
  * Module dependencies.
  */
 
+require('es5-shim');
 require('./styles/index.js');
 var page = require('./components/example/index.js');
 
-console.log(page.log('Hello World'));
+page.log('Hello World');
 
 

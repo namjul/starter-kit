@@ -16,6 +16,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'public', 'build'),
     pathinfo: isProduction ? false : true,
+    publicPath: '/build',
     filename: 'bundle.js'
   },
   devtool: 'source-map',
@@ -34,6 +35,7 @@ module.exports = {
   plugins: [
     new ExtractTextPlugin('styles/[name].css'),
     new webpack.DefinePlugin({
+      VERSION: JSON.stringify(pjson.version),
       DEBUG: isProduction ? false: true,
       PRODUCTION: isProduction ? true : false
     }),

@@ -100,6 +100,10 @@ module.exports = function(app) {
     archive.finalize();
   });
 
+  router.get('/page', function(req, res) {
+    res.render('page');
+  });
+
   return router;
 
 };
