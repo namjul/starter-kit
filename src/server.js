@@ -4,10 +4,11 @@ var express = require('express');
 var api = require('./server/api.js');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
 var session = require('express-session');
 var server = express();
 var isProduction = process.env.NODE_ENV === 'production';
-var publicPath = path.resolve(__dirname, './public');
+var publicPath = path.resolve(__dirname, '../public');
 
 server.set('views', path.join(__dirname, 'templates'));
 server.set('view engine', 'jade');
@@ -23,6 +24,7 @@ server.use(session({
     }
 }));
 server.use(cookieParser());
+server.use(bodyParser.json());
 server.use(express.static(publicPath));
 
 server.locals.pretty = true; // make jade output nice html
