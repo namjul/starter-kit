@@ -97,14 +97,12 @@ Zunächst müssen Dokku Remotes erstellt werden.
 
 ```
 git remote add dokku dokku@udm-websolutions.at:MyApp
-git remote add dokku-staging dokku-staging@udm-websolutions.at:MyApp
 ```
 
 Anschließend kann deployed werden
 
 ```
-npm run deploy:stage
-npm run deploy:prod
+npm run deploy
 ```
 
 ## Versionierung

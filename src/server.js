@@ -48,20 +48,16 @@ server.use(function(req, res, next){
 // clickdummy api
 server.use('/', api(server));
 
-/// catch 404 and forward to error handler
-server.use(function(req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
+// Handle 404
+server.use(function(req, res) {
+  res.status(400);
+  res.render('error', {title: '404: File Not Found'});
 });
 
-// error handler
-server.use(function(err, req, res) {
-    res.status(err.status || 500);
-    res.render('error', {
-        message: err.message,
-        error: {}
-    });
+// Handle 500
+server.use(function(error, req, res, next) {
+  res.status(500);
+  res.render('error', {title:'500: Internal Server Error', error: error});
 });
 
 // And run the server

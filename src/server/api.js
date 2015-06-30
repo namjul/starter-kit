@@ -66,14 +66,14 @@ module.exports = function(app) {
   // Overview route
   router.get('/', function(req, res) {
     var routes = router.stack.filter(function(value) {
-      return value.hasOwnProperty('route') && ['/login', '/logout', '/*'].indexOf(value.route.path) < 0 ? true : false;
+      return value.hasOwnProperty('route') && ['/login', '/logout', '/*', '/', '/clickdummy-' + pjson.version + '.zip'].indexOf(value.route.path) < 0 ? true : false;
     });
 
     fs.readFile('./CHANGELOG.md', 'utf8', function (err, data) {
       if (err) {
         throw err;
       }
-      res.render('index', { version: pjson.version, routes: routes, history: markdown.toHTML( data.toString() ) });
+      res.render('pages', { version: pjson.version, routes: routes, history: markdown.toHTML( data.toString() ) });
     });
   });
 
@@ -101,7 +101,7 @@ module.exports = function(app) {
   });
 
   router.get('/page', function(req, res) {
-    res.render('page');
+    res.render('pages/page');
   });
 
   return router;

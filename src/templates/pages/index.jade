@@ -1,7 +1,21 @@
+//
+      ____ ___________      _____
+      |    |   \______ \    /     \
+      |    |   /|    |  \  /  \ /  \
+      |    |  / |    `   \/    Y    \
+      |______/ /_______  /\____|__  /
+                       \/         \/
+                  UDM
+
 doctype html
-html
+html.no-js(lang='de')
   head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
     title= title
+    meta(name='description', content='Beschreibung')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+
     link(href='http://fonts.googleapis.com/css?family=Raleway:400,200', rel='stylesheet', type='text/css')
     style.
       body {
@@ -134,9 +148,6 @@ html
                     for route in routes
                       li
                         a(href= route.route.url ? route.route.url : route.route.path) #{route.route.path}
-
-                        li
-                          a(href='errror') /errror
           .grid
             .col-1-1
               a.button(href='/clickdummy-' + version + '.zip') CSS/JS Archiv
