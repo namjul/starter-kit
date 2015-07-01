@@ -66,19 +66,19 @@ module.exports = function(app) {
   // Overview route
   router.get('/', function(req, res) {
     var routes = router.stack.filter(function(value) {
-      return value.hasOwnProperty('route') && ['/login', '/logout', '/*', '/', '/clickdummy-' + pjson.version + '.zip'].indexOf(value.route.path) < 0 ? true : false;
+      return value.hasOwnProperty('route') && ['/login', '/logout', '/*', '/', '/' + pjson.name + '-' + pjson.version + '.zip'].indexOf(value.route.path) < 0 ? true : false;
     });
 
     fs.readFile('./CHANGELOG.md', 'utf8', function (err, data) {
       if (err) {
         throw err;
       }
-      res.render('pages', { version: pjson.version, routes: routes, history: markdown.toHTML( data.toString() ) });
+      res.render('pages', { version: pjson.version, name: pjson.name, routes: routes, history: markdown.toHTML( data.toString() ) });
     });
   });
 
   // Download ZIP Archive
-  router.get('/clickdummy-' + pjson.version + '.zip', function(req, res) {
+  router.get('/' + pjson.name + '-' + pjson.version + '.zip', function(req, res) {
     var archive = archiver('zip');
 
     archive.on('error', function(err) {
@@ -90,10 +90,10 @@ module.exports = function(app) {
     archive.bulk([
       {
         src: ['**'],
-        dest: 'clickdummy-' + pjson.version,
+        dest: pjson.name + '-' + pjson.version,
         data: { date: new Date()},
         expand: true,
-        cwd: 'build'
+        cwd: 'public/build'
       }
     ]);
 

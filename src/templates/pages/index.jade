@@ -12,7 +12,7 @@ html.no-js(lang='de')
   head
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    title= title
+    title UDM - Starter Kit
     meta(name='description', content='Beschreibung')
     meta(name='viewport', content='width=device-width, initial-scale=1')
 
@@ -150,5 +150,5 @@ html.no-js(lang='de')
                         a(href= route.route.url ? route.route.url : route.route.path) #{route.route.path}
           .grid
             .col-1-1
-              a.button(href='/clickdummy-' + version + '.zip') CSS/JS Archiv
+              a.button(href='/' + name + '-' + version + '.zip') CSS/JS Archiv
               .history.text-left !{history}

@@ -28,7 +28,6 @@ server.use(bodyParser.json());
 server.use(express.static(publicPath));
 
 server.locals.pretty = true; // make jade output nice html
-server.locals.title = 'UDM - Clickdummy';
 server.locals.isProduction = isProduction;
 
 // We require the bundler inside the if block because
