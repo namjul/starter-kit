@@ -7,6 +7,7 @@ var fs = require('fs');
 var markdown = require('markdown').markdown;
 var basicAuth = require('basic-auth');
 var archiver = require('archiver');
+var path = require('path');
 var pjson = require('../../package.json');
 
 var router = express.Router();
@@ -87,13 +88,14 @@ module.exports = function(app) {
 
     archive.pipe(res);
 
+
     archive.bulk([
       {
         src: ['**'],
         dest: pjson.name + '-' + pjson.version,
         data: { date: new Date()},
         expand: true,
-        cwd: 'public/build'
+        cwd: path.resolve(__dirname, '..', '..', 'public', 'build')
       }
     ]);
 
