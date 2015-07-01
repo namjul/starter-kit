@@ -3,8 +3,7 @@
  * Module dependencies.
  */
 
-import './styles/base.css';
-import app from './components/App/index.js';
+import app from './components/App/App';
 
 app();
 

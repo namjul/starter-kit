@@ -95,7 +95,7 @@ module.exports = function(app) {
         dest: pjson.name + '-' + pjson.version,
         data: { date: new Date()},
         expand: true,
-        cwd: path.resolve(__dirname, '..', '..', 'public', 'build')
+        cwd: path.resolve(__dirname, '..', '..', 'public')
       }
     ]);
 

@@ -34,6 +34,7 @@
     "karma-phantomjs-launcher": "^0.1.4",
     "karma-webpack": "^1.5.0",
     "less-loader": "^2.2.0",
+    "normalize.css": "^3.0.3",
     "postcss-custom-media": "^3.0.0",
     "postcss-custom-properties": "^3.2.0",
     "postcss-custom-selectors": "^1.1.0",

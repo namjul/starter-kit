@@ -3,7 +3,7 @@
  * Module dependencies.
  */
 
-import './index.css';
+import './App.css';
 
 export default function() {
   return 'AppClass';

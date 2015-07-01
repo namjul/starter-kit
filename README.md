@@ -14,7 +14,7 @@
 │   ├── /helper/                # Helper functions
     ├── /templates/             # HTML templates for server-side rendering, emails etc.
 │   ├── /components/            # Components
-│   ├── /styles/                # CSS styles (deprecated, put CSS into components' folders)
+│   ├── /styles/                # CSS styles (CSS should be put into components' folders)
 │   └── /app.js                 # Client-side startup script
 │── package.json                # Build commands & list of 3rd party libraries and utilities
 └── webpack.config.js           # Webpack configuration for bundling and optimization
