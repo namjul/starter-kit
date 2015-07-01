@@ -49,12 +49,11 @@
   "scripts": {
     "clean": "rimraf public/build",
     "prebuild": "npm run clean -s",
-    "build": "webpack --progress --colors",
-    "build:release": "NODE_ENV=production npm run build",
+    "build": "NODE_ENV=production webpack --progress --colors",
     "prewatch": "npm run clean -s",
     "watch": "webpack --progress --colors -w",
     "test": "karma start --single-run",
-    "deploy": "git push webpack HEAD:master --force",
+    "deploy": "git push udmsk HEAD:master --force",
     "start": "node src/server.js",
     "todo": "grep --color -Ion '\\(TODO\\).*' -r src"
   }

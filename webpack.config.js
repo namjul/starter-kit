@@ -19,9 +19,9 @@ var cssLoaders = 'style!css?sourceMap!postcss';
 var lessLoaders = cssLoaders + '!less?sourceMap';
 
 if (isProduction) {
-    cssLoaders = extractForProduction(cssLoaders);
-    lessLoaders = extractForProduction(lessLoaders);
-  }
+  cssLoaders = extractForProduction(cssLoaders);
+  lessLoaders = extractForProduction(lessLoaders);
+}
 
 module.exports = {
   entry: isProduction ? './src/app.js' : ['webpack/hot/dev-server', './src/app.js'],
@@ -53,10 +53,10 @@ module.exports = {
     new webpack.BannerPlugin(pjson.name + ', v' + pjson.version, {entryOnly: true}) // Adds version numter to every output file
   ]
   .concat(!isProduction ? [
-    new ExtractTextPlugin('styles/[name].css'),
     new webpack.HotModuleReplacementPlugin() // We have to manually add the Hot Replacement plugin when running from Node
   ] : [])
   .concat(isProduction ? [
+    new ExtractTextPlugin('styles/[name].css'),
     new webpack.optimize.UglifyJsPlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
   ] : []),
