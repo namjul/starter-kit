@@ -11,8 +11,20 @@ var mqpacker = require('css-mqpacker');
 var pjson = require('./package.json');
 var isProduction = process.env.NODE_ENV === 'production';
 
+function extractForProduction(loaders) {
+  return ExtractTextPlugin.extract('style', loaders.substr(loaders.indexOf('!')));
+}
+
+var cssLoaders = 'style!css?sourceMap!postcss';
+var lessLoaders = cssLoaders + '!less?sourceMap';
+
+if (isProduction) {
+    cssLoaders = extractForProduction(cssLoaders);
+    lessLoaders = extractForProduction(lessLoaders);
+  }
+
 module.exports = {
-  entry: './src/app.js',
+  entry: isProduction ? './src/app.js' : ['webpack/hot/dev-server', './src/app.js'],
   output: {
     path: path.resolve(__dirname, 'public', 'build'),
     pathinfo: isProduction ? false : true,
@@ -22,26 +34,26 @@ module.exports = {
   devtool: 'source-map',
   debug: isProduction ? false : true,
   module: {
+    preLoaders: [
+      { test: /\.jsx?$/, exclude: /node_modules/, loader: 'eslint-loader' }
+    ],
     loaders: [
-      { test: /\.js?$/, exclude: /node_modules/, loader: 'babel-loader?optional=runtime' },
-      { test: /\.less$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap!less-loader?sourceMap') },
-      { test: /\.css$/, exclude: /\.useable\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap!postcss-loader') },
-      { test: /\.useable\.css$/, loader: 'style-loader/useable!css-loader?sourceMap!postcss-loader' },
+      { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader?optional=runtime' },
+      { test: /\.less$/, loader: lessLoaders },
+      { test: /\.css$/, loader: cssLoaders },
       { test: /\.(svg|png|jpg|jpeg|gif)$/, loader: 'url-loader?limit=1000&name=images/[name].[hash].[ext]' },
       { test: /(font|fonts)\/.*\.(eot|ttf|woff|svg)$/, loader: 'file?name=font/[name].[ext]' }
     ]
   },
-
   plugins: [
-    new ExtractTextPlugin('styles/[name].css'),
     new webpack.DefinePlugin({
-      VERSION: JSON.stringify(pjson.version),
-      DEBUG: isProduction ? false: true,
-      PRODUCTION: isProduction ? true : false
+      __DEV__: isProduction ? false: true,
+      __RELEASE__: isProduction ? true : false
     }),
     new webpack.BannerPlugin(pjson.name + ', v' + pjson.version, {entryOnly: true}) // Adds version numter to every output file
   ]
   .concat(!isProduction ? [
+    new ExtractTextPlugin('styles/[name].css'),
     new webpack.HotModuleReplacementPlugin() // We have to manually add the Hot Replacement plugin when running from Node
   ] : [])
   .concat(isProduction ? [
@@ -49,7 +61,7 @@ module.exports = {
     new webpack.optimize.OccurenceOrderPlugin(),
   ] : []),
   resolve: {
-    extensions: ['', '.js', '.less']
+    extensions: ['', '.js', '.jsx', '.less', '.css'],
   },
   postcss: [atImport(), autoprefixer, customMedia(), customProperties(), selector(), minmax(), mqpacker()]
 

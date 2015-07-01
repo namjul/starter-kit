@@ -1,10 +1,8 @@
 'use strict';
 
-var opener = require('opener'); // jshint ignore:line
 var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
 var webpackConfig = require('./../../webpack.config.js');
-var isOpen = false;
 
 module.exports = function () {
 
@@ -24,10 +22,6 @@ module.exports = function () {
   // time it took. Nice to have
   compiler.plugin('done', function() {
     console.log('Bundled in ' + (Date.now() - bundleStart) + 'ms!');
-    if(!isOpen) {
-      opener('http://localhost:8080');
-      isOpen = true;
-    }
   });
 
   var bundler = new WebpackDevServer(compiler, {

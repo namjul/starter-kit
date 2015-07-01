@@ -1,7 +1,17 @@
 {
   "name": "udm-starter-kit",
   "version": "0.0.1",
-  "description": "UDM's starter kit. Webpack, Babel, CSS4/Less und mehr.",
+  "description": "UDM's starter kit.",
+  "dependencies": {
+    "archiver": "^0.14.4",
+    "basic-auth": "^1.0.2",
+    "body-parser": "^1.13.1",
+    "cookie-parser": "^1.3.5",
+    "express": "^4.12.4",
+    "express-session": "^1.11.3",
+    "jade": "^1.11.0",
+    "markdown": "^0.5.0"
+  },
   "devDependencies": {
     "autoprefixer-core": "^5.1.7",
     "babel-core": "^4.7.16",
@@ -11,6 +21,8 @@
     "css-loader": "~0.9.1",
     "css-mqpacker": "^3.1.0",
     "es5-shim": "^4.1.7",
+    "eslint": "^0.24.0",
+    "eslint-loader": "^0.14.1",
     "extract-text-webpack-plugin": "^0.5.0",
     "file-loader": "^0.8.1",
     "karma": "^0.12.31",
@@ -22,7 +34,6 @@
     "karma-phantomjs-launcher": "^0.1.4",
     "karma-webpack": "^1.5.0",
     "less-loader": "^2.2.0",
-    "opener": "^1.4.1",
     "postcss-custom-media": "^3.0.0",
     "postcss-custom-properties": "^3.2.0",
     "postcss-custom-selectors": "^1.1.0",
@@ -46,15 +57,5 @@
     "deploy": "git push webpack HEAD:master --force",
     "start": "node src/server.js",
     "todo": "grep --color -Ion '\\(TODO\\).*' -r src"
-  },
-  "dependencies": {
-    "archiver": "^0.14.4",
-    "basic-auth": "^1.0.2",
-    "body-parser": "^1.13.1",
-    "cookie-parser": "^1.3.5",
-    "express": "^4.12.4",
-    "express-session": "^1.11.3",
-    "jade": "^1.11.0",
-    "markdown": "^0.5.0"
   }
 }

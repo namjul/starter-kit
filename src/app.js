@@ -1,18 +1,10 @@
-if(DEBUG) {
-  console.log('Running App version ' + VERSION);
-}
-
-
-
 
 /**
  * Module dependencies.
  */
 
-require('es5-shim');
-require('./styles/index.js');
-var page = require('./components/example/index.js');
+import './styles/base.css';
+import app from './components/App/index.js';
 
-page.log('Hello World');
-
+app();
 
