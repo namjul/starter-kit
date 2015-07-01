@@ -6,7 +6,7 @@
 
 ```
 .
-├── /build/                     # The folder for compiled output
+├── /public/build/              # The folder for compiled output
 ├── /docs/                      # Documentation files for the project
 ├── /node_modules/              # 3rd-party libraries and utilities
 ├── /public/                    # Static files
