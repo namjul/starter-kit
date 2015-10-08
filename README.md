@@ -1,8 +1,6 @@
-# UDMSK
+# Starter Kit
 
-**U**sability **D**esign **M**anagement **S**tarter **K**it.
-
-# Verzeichis Aufbau
+# Composition
 
 ```
 .
@@ -20,33 +18,8 @@
 └── webpack.config.js           # Webpack configuration for bundling and optimization
 ```
 
-# Features
 
-* ES6
-* CommonJS, AMD, ES6 Module
-* JS/CSS Minification
-* TODOs
-* Server (Clickdummy, Backend, FileServer)
-* Less, CSS4 
-* editorconfigs
-* jsLint (jshint)
-* Changelog
-* Documentation
-* gitconfigs
-* Tests
-* Distribution
-* Semver
-* Watch
-* hotreload
-* Bower & NPM Modules
-* Windows & Linux & OSX
-* Hashing
-* Copying
-* Pagespeed
-* Procfile
-* Image optimization
-
-## Anwendung
+## Usage
 
 Fork oder klone dieses Repo, und dann folgendes ausführen:
 
@@ -92,14 +65,6 @@ npm run test:watch
 
 
 ## Deployment
-
-Zunächst müssen Dokku Remotes erstellt werden.
-
-```
-git remote add dokku dokku@udm-websolutions.at:MyApp
-```
-
-Anschließend kann deployed werden
 
 ```
 npm run deploy
@@ -178,3 +143,4 @@ npm install
 
 - [https://github.com/gowravshekar/bootstrap-webpack]
 - [https://github.com/kriasoft/react-starter-kit]
+- [http://www.christianalfoni.com/articles/2015_04_19_The-ultimate-webpack-setup]
