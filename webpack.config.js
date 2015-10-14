@@ -1,22 +1,15 @@
-var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var autoprefixer = require('autoprefixer-core');
-var atImport = require('postcss-import');
-var customMedia = require('postcss-custom-media');
-var customProperties = require('postcss-custom-properties');
-var selector = require('postcss-custom-selectors');
-var minmax = require('postcss-media-minmax');
-var mqpacker = require('css-mqpacker');
-var pjson = require('./package.json');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 var isProduction = process.env.NODE_ENV === 'production';
 
 function extractForProduction(loaders) {
   return ExtractTextPlugin.extract('style', loaders.substr(loaders.indexOf('!')));
 }
 
-var cssLoaders = 'style!css?sourceMap!postcss';
-var lessLoaders = cssLoaders + '!less?sourceMap';
+var localIdentName = isProduction ? '[hash:base64]' : '[path]-[local]-[hash:base64:5]';
+var cssLoaders = 'style!css?localIdentName=' + localIdentName + '!autoprefixer?browsers=last 2 versions';
+var lessLoaders = cssLoaders + '!less';
 
 if (isProduction) {
   cssLoaders = extractForProduction(cssLoaders);
@@ -24,45 +17,64 @@ if (isProduction) {
 }
 
 module.exports = {
-  entry: isProduction ? './src/app.js' : ['webpack/hot/dev-server', './src/app.js'],
+
+  entry: './src/app.js',
+
   output: {
-    path: path.resolve(__dirname, 'public', 'build'),
+    path: require('path').resolve(__dirname, 'dist'),
     pathinfo: isProduction ? false : true,
-    publicPath: '/build',
+    publicPath: '/',
     filename: 'bundle.js'
   },
+
   devtool: 'source-map',
   debug: isProduction ? false : true,
+
   module: {
-    preLoaders: [
-      { test: /\.jsx?$/, exclude: /node_modules/, loader: 'eslint-loader' }
-    ],
-    loaders: [
-      { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader?optional=runtime' },
-      { test: /\.less$/, loader: lessLoaders },
-      { test: /\.css$/, loader: cssLoaders },
-      { test: /\.(svg|png|jpg|jpeg|gif)$/, loader: 'url-loader?limit=1000&name=images/[name].[hash].[ext]' },
-      { test: /(font|fonts)\/.*\.(eot|ttf|woff|svg)$/, loader: 'file?name=font/[name].[ext]' }
-    ]
+    preLoaders: [{
+      test: /\.(js|jsx)$/,
+      exclude: [/node_module/, 'server.js', 'mock/*'],
+      loader: 'eslint'
+    }],
+    loaders: [{ 
+      test: /\.(js|jsx)$/,
+      exclude: /node_modules/,
+      //loader: 'react-hot!babel'
+      loader: 'babel'
+    }, { 
+      test: /\.less$/, 
+      loader: lessLoaders 
+    }, {
+      test: /\.css$/, 
+      loader: cssLoaders 
+    }, { 
+      test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
+      loader: 'url-loader?limit=10000',
+    }]
   },
+
+  resolve: {
+    extensions: ['', '.js', '.jsx', '.css', '.less'],
+  },
+
   plugins: [
     new webpack.DefinePlugin({
-      __DEV__: isProduction ? false: true,
-      __RELEASE__: isProduction ? true : false
+      __DEV__: isProduction ? false: true
     }),
-    new webpack.BannerPlugin(pjson.name + ', v' + pjson.version, {entryOnly: true}) // Adds version numter to every output file
+    new HtmlWebpackPlugin({
+      template: './src/templates/index.html',
+      production: isProduction
+    })
   ]
-  .concat(!isProduction ? [
-    new webpack.HotModuleReplacementPlugin() // We have to manually add the Hot Replacement plugin when running from Node
-  ] : [])
   .concat(isProduction ? [
     new ExtractTextPlugin('styles/[name].css'),
-    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    }),
     new webpack.optimize.OccurenceOrderPlugin(),
-  ] : []),
-  resolve: {
-    extensions: ['', '.js', '.jsx', '.less', '.css'],
-  },
-  postcss: [atImport(), autoprefixer, customMedia(), customProperties(), selector(), minmax(), mqpacker()]
+    new webpack.optimize.DedupePlugin()
+  ] : [])
 
 };
